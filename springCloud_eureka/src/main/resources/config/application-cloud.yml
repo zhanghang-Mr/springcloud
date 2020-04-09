@@ -1,0 +1,18 @@
+eureka:
+  environment: ${CI_ENVIRONMENT_NAME:devel}
+  datacenter: cloud
+  region: ${AWS_REGION:default}
+  server:
+    awsAccessId: ${AWS_ACCESS_KEY_ID}
+    awsSecretKey: ${AWS_SECRET_ACCESS_KEY}
+  client:
+    eurekaServerPort: ${server.port}
+    eurekaServerDNSName: ${eureka.environment}.openstreetcraft.net
+    eurekaServerURLContext: eureka
+    region: ${eureka.region}
+    useDnsForFetchingServiceUrls: true
+    registerWithEureka: true
+    preferSameZoneEureka: false
+  shouldUseDns: true
+  eurekaServer:
+    domainName: ${eureka.environment}.openstreetcraft.net

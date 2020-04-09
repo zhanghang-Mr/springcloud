@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: eureka-server
+  security:
+    user:
+      name: zh              # 用戶名
+      password: zh12        # 密碼

@@ -5,6 +5,10 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
+<!-- 子項目 -->
+	<modules>
+		<module>springCloud_eureka</module>
+	</modules>
 
 <!-- 参数 -->
 	<properties>
@@ -217,4 +221,5 @@
 			</plugin>
 		</plugins>
 	</build>
+
 </project>

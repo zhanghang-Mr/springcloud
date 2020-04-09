@@ -1,0 +1,29 @@
+#==================== 安全配置 ============================
+spring:
+  profiles:
+
+server:
+  port: 9081
+  servlet:
+    session:
+      timeout: 3600
+  tomcat:
+    uri-encoding: utf-8
+    
+    
+#==================== Eureka ============================
+eureka:
+  instance:
+    hostname: localhost #配置使用主机名注册服务
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}:@project.version@
+    prefer-ip-address: true
+    leaseRenewalIntervalInSeconds: 10 #租期更新时间间隔(默认30秒).每间隔10s，向服务端发送一次心跳，证明自己依然”存活“
+    leaseExpirationDurationInSeconds: 30 #租期到期时间(默认90秒).告诉服务端，如果我30s之内没有给你发心跳，就代表我“死”了，将我踢出掉
+  server:
+    enable-self-preservation: false #测试时关闭自我保护机制，保证不可用服务及时踢出
+    eviction-interval-timer-in-ms: 4000 #清理间隔(单位毫秒，默认是60*1000)
+  client:
+    register-with-eureka: false  #是否将eureka自身作为应用注册到eureka注册中心
+    fetch-registry: false #是否到eureka服务器中抓取注册信息
+    service-url:
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:${server.port}/eureka/
