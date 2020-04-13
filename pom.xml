@@ -8,6 +8,7 @@
 <!-- 子項目 -->
 	<modules>
 		<module>springCloud_eureka</module>
+		<module>springboot_oauth2</module>
 	</modules>
 
 <!-- 参数 -->

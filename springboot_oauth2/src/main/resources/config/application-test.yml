@@ -1,0 +1,32 @@
+#==================== 安全配置 ============================
+spring:
+  profiles:
+    include:
+          testDb, testRedis, testAct
+  boot:
+    admin:
+      client:
+        instance:
+          name: ${spring.application.name}
+          prefer-ip: true
+        url: http://localhost:8901
+#==================== RabbitMQ配置 ============================ 
+  rabbitmq:
+    host: 192.168.0.103
+    port: 5672
+    username: admin
+    password: admin
+    virtual-host: /
+    publisher-confirms: true  #  消息发送到交换机确认机制,是否确认回调
+    publisher-returns: true 
+#==================== Eureka ============================
+eureka:
+  instance:
+    hostname: localhost #配置使用主机名注册服务
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}:@project.version@
+    prefer-ip-address: true
+    leaseRenewalIntervalInSeconds: 10
+    leaseExpirationDurationInSeconds: 30
+  client:
+    service-url:
+      defaultZone: http://zh:zh12@localhost:8081/eureka/
