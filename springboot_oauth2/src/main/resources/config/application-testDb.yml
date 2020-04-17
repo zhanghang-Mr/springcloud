@@ -22,11 +22,8 @@ spring:
       test-on-return: false
       test-while-idle: true
       db-type: com.alibaba.druid.pool.DruidDataSource
-      url: jdbc:mysql://192.168.0.103:3306/jyg?useSSL=false&serverTimezone=GMT%2B8&characterEncoding=utf8&rewriteBatchedStatements=true
-      username: kypg
-      password: ab1234!@#$AB
-#        url: jdbc:mysql://222.89.236.177:53306/jyg?useSSL=false&serverTimezone=GMT%2B8&characterEncoding=utf8&rewriteBatchedStatements=true
-#        username: jyg
-#        password: root
+      url: jdbc:mysql://localhost:3306/hospital?useSSL=false&serverTimezone=GMT%2B8&characterEncoding=utf8&rewriteBatchedStatements=true
+      username: root
+      password: root
       validation-query: SELECT 1 FROM DUAL
       validation-query-timeout: 30000
